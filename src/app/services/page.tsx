@@ -1,31 +1,41 @@
-export const metadata = {
-  title: 'Services | Pinkelle Adventures',
-  description: 'Travel services including Dubai tours, UAE visas, safaris, hotel bookings, and business travel support.',
-}
+import { ServicesGrid } from '@/components/sections/services-grid'
+import { ServicesCTA } from '@/components/sections/services-cta'
 
-const services = [
-  'Dubai Tours',
-  'UAE Visit Visas',
-  'East African Safaris',
-  'Hotel Reservations',
-  'Medical Tourism',
-  'Business Travel Support',
-  'Group Travel',
-  'B2B Travel Partnerships',
-]
+export const metadata = {
+  title: 'Our Services',
+  description:
+    'Explore UAE visas, Dubai tours, global travel services, and more with Pinkelle Adventures.',
+}
 
 export default function ServicesPage() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold text-brandPink">Our Services</h1>
-      <div className="grid md:grid-cols-2 gap-6 mt-10">
-        {services.map((service) => (
-          <div key={service} className="rounded-2xl border p-6 shadow-sm">
-            <h2 className="text-xl font-semibold">{service}</h2>
-            <p className="mt-3 text-slate-600">Professional support designed to make your travel planning smooth and stress-free.</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <>
+      {/* Banner */}
+      <section className="bg-secondary text-white">
+        <div className="section-tight text-center">
+
+          <p className="text-xs tracking-widest uppercase text-white/80 mb-3">
+            What We Offer
+          </p>
+
+          <h1 className="text-white">Our Services</h1>
+
+          <div className="w-16 h-[3px] bg-gradient-to-r from-primary to-white mx-auto mt-4 mb-6 rounded-full" />
+
+          <p className="max-w-2xl mx-auto text-white/90">
+            From UAE visa processing to worldwide holiday packages — everything you need for seamless travel, all under one roof.
+          </p>
+
+        </div>
+      </section>
+
+      {/* Services */}
+      <ServicesGrid />
+
+      {/* CTA */}
+      <section className="section">
+        <ServicesCTA />
+      </section>
+    </>
   )
 }
