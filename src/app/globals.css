@@ -1,26 +1,158 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #EC008C;
+  --color-primary-light: #f4339f;
+  --color-primary-dark: #c70076;
+
+  --color-secondary: #489A94;
+  --color-secondary-light: #5ab5ae;
+  --color-secondary-dark: #367570;
+
+  --color-bg: #ffffff;
+  --color-text: #1a1a2e;
+
+  --color-gold: #d4a853;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+h1 {
+  @apply text-4xl md:text-6xl font-bold tracking-tight;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+h2 {
+  @apply text-3xl md:text-4xl font-semibold;
+}
+
+h3 {
+  @apply text-xl font-semibold;
+}
+
+p {
+  @apply text-slate-600 leading-relaxed;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+  color: #1a1a2e;
+  background: #ffffff;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #EC008C, #489A94);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d4a853, #f0d48a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 36px rgba(37, 211, 102, 0.65);
+}
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s ease;
+}
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.9s ease forwards;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.luxury-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #EC008C, #489A94);
+  border-radius: 2px;
+}
+
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.section {
+  @apply max-w-7xl mx-auto px-6 py-20;
+}
+.card {
+  @apply bg-white rounded-2xl shadow-md p-6 transition;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+.btn-primary {
+  @apply bg-primary text-white px-6 py-3 rounded-full font-medium transition;
+}
+
+.btn-primary:hover {
+  @apply bg-[color:var(--color-primary-dark)];
+}
+
+.btn-secondary {
+  @apply border border-white/30 text-white px-6 py-3 rounded-full backdrop-blur;
+}
+.image-hover {
+  overflow: hidden;
+}
+
+.image-hover img {
+  transition: transform 0.5s ease;
+}
+
+.image-hover:hover img {
+  transform: scale(1.08);
 }
