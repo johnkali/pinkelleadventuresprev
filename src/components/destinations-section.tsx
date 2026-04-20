@@ -23,7 +23,7 @@ export function DestinationsSection() {
   return (
     <section className="section bg-slate-50">
 
-      <div className="text-center mb-12">
+      <div className="text-center max-w-2xl mx-auto mb-12">
         <h2>Explore Destinations</h2>
         <div className="luxury-divider mx-auto mt-4 mb-4" />
         <p>

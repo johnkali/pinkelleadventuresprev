@@ -17,7 +17,7 @@ export function TestimonialsSection() {
   return (
     <section className="section">
 
-      <div className="text-center mb-12">
+      <div className="text-center max-w-2xl mx-auto mb-12">
         <h2>What Our Clients Say</h2>
         <div className="luxury-divider mx-auto mt-4 mb-4" />
       </div>
