@@ -141,6 +141,14 @@ body {
   transform: translateY(-8px);
   box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
+.tour-card {
+  transition: all 0.35s cubic-bezier(.25,.46,.45,.94);
+}
+
+.tour-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+}
 .btn-primary {
   @apply bg-primary text-white px-6 py-3 rounded-full font-medium transition;
 }

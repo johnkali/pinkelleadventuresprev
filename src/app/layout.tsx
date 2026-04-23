@@ -5,6 +5,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { WhatsAppFloat } from '@/components/whatsapp-float'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { CurrencyProvider } from '@/lib/currency-context'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -51,10 +52,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-white text-slate-900">
+        <CurrencyProvider>
         <SiteHeader/>
         <main>{children}</main>
         <SiteFooter/>
         <WhatsAppFloat/>
+        </CurrencyProvider>
+
 
         {/* Google Analytics Placeholder */}
 {/* <Script

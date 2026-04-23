@@ -1,26 +1,39 @@
 'use client'
 
-type Currency = 'AED' | 'USD'
+import { useCurrency } from '@/lib/currency-context'
 
-interface CurrencyToggleProps {
-  currency: Currency
-  setCurrency: (currency: Currency) => void
-}
+export function CurrencyToggle() {
+  const { currency, setCurrency } = useCurrency()
 
-export function CurrencyToggle({ currency, setCurrency }: CurrencyToggleProps) {
   return (
-    <div className="inline-flex rounded-full border border-slate-200 p-1 bg-white">
-      {(['AED', 'USD'] as Currency[]).map((item) => (
-        <button
-          key={item}
-          onClick={() => setCurrency(item)}
-          className={`rounded-full px-4 py-2 text-sm font-medium transition ${
-            currency === item ? 'bg-brandPink text-white' : 'text-slate-600'
+    <div className="flex justify-center gap-3">
+
+      {/* AED */}
+      <button
+        onClick={() => setCurrency('AED')}
+        className={`px-5 py-2 rounded-full text-sm font-medium transition
+          ${
+            currency === 'AED'
+              ? 'bg-primary text-white'
+              : 'bg-slate-200 text-slate-700'
           }`}
-        >
-          {item}
-        </button>
-      ))}
+      >
+        AED (د.إ)
+      </button>
+
+      {/* USD */}
+      <button
+        onClick={() => setCurrency('USD')}
+        className={`px-5 py-2 rounded-full text-sm font-medium transition
+          ${
+            currency === 'USD'
+              ? 'bg-[#489a94] text-white'
+              : 'bg-slate-200 text-slate-700'
+          }`}
+      >
+        USD ($)
+      </button>
+
     </div>
   )
 }
