@@ -15,7 +15,7 @@ export const tours = [
       'Live entertainment',
       'Henna painting',
     ],
-    image: '/placeholder.jpg',
+    image: 'images/dubai-tours/Desert Safari Experience.jpg',
   },
 
   {
@@ -34,7 +34,7 @@ export const tours = [
       'Jumeirah Mosque',
       'Palm Jumeirah',
     ],
-    image: '/placeholder.jpg',
+    image: 'images/dubai-tours/Dubai City Tour.jpg',
   },
 
   {
@@ -52,7 +52,7 @@ export const tours = [
       'Creek or Marina cruise',
       'Air-conditioned deck',
     ],
-    image: '/placeholder.jpg',
+    image: 'images/dubai-tours/Dhow Cruise Dinner.jpg',
   },
 
   {
@@ -69,7 +69,7 @@ export const tours = [
       'Underwater Zoo',
       'Transport included',
     ],
-    image: '/placeholder.jpg',
+    image: 'images/dubai-tours/Desert Safari Experience.jpg',
   },
 
   {
@@ -88,7 +88,7 @@ export const tours = [
       'Emirates Palace photo stop',
       'Lunch break',
     ],
-    image: '/placeholder.jpg',
+    image: 'images/dubai-tours/Dubai City Tour.jpg',
   },
 
   {
@@ -109,6 +109,6 @@ export const tours = [
       'Museum of the Future',
       'Daily breakfast',
     ],
-    image: '/placeholder.jpg',
+    image: 'images/dubai-tours/Dhow Cruise Dinner.jpg',
   },
 ]

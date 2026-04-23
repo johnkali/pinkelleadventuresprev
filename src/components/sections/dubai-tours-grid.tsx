@@ -6,7 +6,7 @@ import { useCurrency } from "@/lib/currency-context";
 export function DubaiToursGrid() {
   const { currency } = useCurrency();
   return (
-    <section className="section bg-slate-50">
+    <section className="section bg-white">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {tours.map((tour, i) => (
           <div
