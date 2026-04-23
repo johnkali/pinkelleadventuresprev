@@ -1,29 +1,50 @@
-export const metadata = {
-  title: 'Destinations | Pinkelle Adventures',
-  description: 'Explore Dubai, East Africa, Europe, and more with Pinkelle Adventures.',
-}
+import { DestinationsList } from '@/components/sections/destinations-list'
+import { DestinationsCTA } from '@/components/sections/destinations-cta'
 
-const destinations = [
-  'Dubai & UAE',
-  'Kenya Safaris',
-  'Tanzania & Zanzibar',
-  'Uganda Adventures',
-  'Turkey & Europe',
-  'Asia Holidays',
-]
+export const metadata = {
+  title: 'Other Travel Destinations',
+  description:
+    'Explore global travel destinations including Malaysia, Turkey, Maldives, China, East Africa and Europe.',
+}
 
 export default function DestinationsPage() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold text-brandPink">Our Destinations</h1>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        {destinations.map((item) => (
-          <div key={item} className="rounded-2xl border p-6 bg-white shadow-sm">
-            <h2 className="text-xl font-semibold">{item}</h2>
-            <p className="text-slate-600 mt-3">Tailored packages and trusted support for your next journey.</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <>
+      {/* HERO */}
+      <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+        <div className="section text-center">
+
+          <p className="text-xs uppercase tracking-widest text-primary mb-3">
+            Explore the World
+          </p>
+
+          <h1 className="text-white">
+            Other Travel Destinations
+          </h1>
+
+          <div className="w-16 h-[3px] bg-primary mx-auto mt-4 mb-6 rounded-full" />
+
+          <p className="max-w-2xl mx-auto text-white/80 mb-8">
+            Dubai is our home — but the world is our playground. We plan unforgettable holidays to Malaysia, Turkey, Maldives, China, East Africa, Europe & beyond.
+          </p>
+
+          <a
+            href="/contact"
+            className="btn-primary"
+          >
+            Get a Quote for Any Destination
+          </a>
+
+        </div>
+      </section>
+
+      {/* DESTINATIONS */}
+      <DestinationsList />
+
+      {/* CTA */}
+      <section className="section">
+        <DestinationsCTA />
+      </section>
+    </>
   )
 }
