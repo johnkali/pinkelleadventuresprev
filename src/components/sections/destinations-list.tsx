@@ -2,47 +2,66 @@ import { destinations } from '@/lib/data/destinations'
 
 export function DestinationsList() {
   return (
-    <section className="section bg-slate-50">
-      <div className="space-y-20">
+    <section className="section bg-white">
+      <div className="space-y-24">
 
         {destinations.map((dest, i) => {
           const isReverse = i % 2 !== 0
 
+          const accent =
+            dest.color === 'pink' ? '#ec008c' : '#489a94'
+
           return (
             <div
               key={i}
-              className={`grid md:grid-cols-2 gap-10 items-center ${
+              className={`grid md:grid-cols-2 gap-12 items-center ${
                 isReverse ? 'md:[&>div:first-child]:order-2' : ''
               }`}
             >
 
-              {/* LEFT TEXT */}
+              {/* LEFT CONTENT */}
               <div>
-                <h2 className="mb-2">{dest.name}</h2>
 
-                <p className="text-primary text-sm mb-3">
+                <h2 className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl">{dest.flag}</span>
+                  {dest.name}
+                </h2>
+
+                <p
+                  className="text-sm font-medium mb-4"
+                  style={{ color: accent }}
+                >
                   {dest.tagline}
                 </p>
 
-                <p className="mb-4">
+                <p className="mb-4 leading-relaxed">
                   {dest.description}
                 </p>
 
-                <p className="text-xs text-slate-500 uppercase tracking-wide">
-                  Best for: {dest.bestFor}
+                <p className="text-sm text-slate-500">
+                  <span className="font-semibold">Best for:</span>{' '}
+                  {dest.bestFor}
                 </p>
+
               </div>
 
               {/* RIGHT CARD */}
-              <div className="card">
-                <h4 className="mb-4 text-sm uppercase tracking-wide text-slate-500">
+              <div className="rounded-2xl p-6 bg-[#fafaf8] border border-slate-200">
+
+                <h4 className="text-sm font-bold text-slate-900 mb-4">
                   Popular Experiences
                 </h4>
 
-                <ul className="space-y-2 mb-4">
+                <ul className="space-y-3 mb-6">
                   {dest.experiences.map((exp, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm">
-                      <span className="w-2 h-2 bg-primary rounded-full" />
+                    <li
+                      key={idx}
+                      className="flex items-center gap-3 text-sm"
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: accent }}
+                      />
                       {exp}
                     </li>
                   ))}
@@ -50,10 +69,15 @@ export function DestinationsList() {
 
                 <a
                   href="/contact"
-                  className="text-primary text-sm font-medium hover:underline"
+                  className="group inline-flex items-center gap-2 font-medium text-sm"
+                  style={{ color: accent }}
                 >
-                  Get a Quote →
+                  Get a Quote for {dest.name}
+                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-2">
+                    →
+                  </span>
                 </a>
+
               </div>
 
             </div>
