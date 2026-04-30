@@ -1,16 +1,23 @@
+import { AboutHero } from '@/components/sections/about-hero'
+import { MissionVision } from '@/components/sections/mission-vision'
+import { CoreValues } from '@/components/sections/core-values'
+import { Offices } from '@/components/sections/offices'
+import { AboutCTA } from '@/components/sections/about-cta'
+
 export const metadata = {
-  title: 'About Us | Pinkelle Adventures',
-  description: 'Learn more about Pinkelle Adventures, your trusted travel partner in Dubai and East Africa.',
+  title: 'About Pinkelle Adventures',
+  description:
+    'Learn about Pinkelle Adventures — a trusted travel company offering Dubai tours, visas, and global travel experiences.',
 }
 
 export default function AboutPage() {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold text-brandPink">About Pinkelle Adventures</h1>
-      <p className="mt-6 text-slate-700 leading-8">
-        Pinkelle Adventures is a warm, professional travel brand helping clients explore Dubai, the UAE, and East Africa with confidence.
-        With offices in Dubai and Nairobi, we combine local expertise with personalized support to create memorable travel experiences.
-      </p>
-    </section>
+    <>
+      <AboutHero />
+      <MissionVision />
+      <CoreValues />
+      <Offices />
+      <AboutCTA />
+    </>
   )
 }
