@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 
-interface FAQItem {
+type FAQItem = {
   question: string
   answer: string
 }
@@ -13,18 +13,46 @@ export function FAQAccordion({ items }: { items: FAQItem[] }) {
 
   return (
     <div className="space-y-4">
-      {items.map((item, index) => {
-        const isOpen = openIndex === index
+      {items.map((item, i) => {
+        const isOpen = openIndex === i
+
         return (
-          <div key={item.question} className="rounded-2xl border border-slate-200 bg-white">
+          <div
+            key={i}
+            className={`rounded-xl border transition-all duration-300 ${
+              isOpen
+                ? 'border-pink-500 bg-pink-50'
+                : 'border-slate-200 bg-white'
+            }`}
+          >
+            {/* QUESTION */}
             <button
-              className="flex w-full items-center justify-between px-6 py-5 text-left"
-              onClick={() => setOpenIndex(isOpen ? null : index)}
+              onClick={() => setOpenIndex(isOpen ? null : i)}
+              className={`w-full flex items-center justify-between px-6 py-5 text-left transition ${
+                isOpen ? 'text-pink-600' : 'text-slate-800'
+              }`}
             >
-              <span className="font-semibold text-slate-900">{item.question}</span>
-              <ChevronDown className={`h-5 w-5 transition ${isOpen ? 'rotate-180' : ''}`}/>
+              <span className="font-semibold text-sm md:text-base">
+                {item.question}
+              </span>
+
+              <ChevronDown
+                className={`h-5 w-5 transition-transform ${
+                  isOpen ? 'rotate-180 text-pink-600' : 'text-slate-400'
+                }`}
+              />
             </button>
-            {isOpen && <div className="px-6 pb-5 text-slate-600">{item.answer}</div>}
+
+            {/* ANSWER */}
+            <div
+              className={`px-6 overflow-hidden transition-all duration-300 ${
+                isOpen ? 'max-h-[500px] pb-6' : 'max-h-0'
+              }`}
+            >
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {item.answer}
+              </p>
+            </div>
           </div>
         )
       })}
